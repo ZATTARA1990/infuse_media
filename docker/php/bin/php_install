@@ -1,0 +1,13 @@
+#!/bin/sh
+
+apk add --no-cache autoconf automake make g++
+
+case "$1" in
+"pdo_mysql")
+  docker-php-ext-install pdo_mysql
+  ;;
+*)
+  echo "Usage: $0 <extension>"
+  exit 1
+  ;;
+esac
